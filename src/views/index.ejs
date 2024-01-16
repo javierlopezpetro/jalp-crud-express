@@ -1,0 +1,63 @@
+<%- include('partials/_header'); -%>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr >
+                        <td style="background-color: rgb(58, 58, 189); text-align: center; color: antiquewhite; font-size: 20px; border-radius: 2px;">N°</td>
+                        <td style="background-color: rgb(58, 58, 189); text-align: center; color: antiquewhite; font-size: 20px; border-radius: 2px;">Nombre</td>
+                        <td style="background-color: rgb(58, 58, 189); text-align: center; color: antiquewhite; font-size: 20px; border-radius: 2px;">Precio</td>
+                        <td style="background-color: rgb(58, 58, 189); text-align: center; color: antiquewhite; font-size: 20px; border-radius: 2px;">Moto</td>
+                        <td style="background-color: rgb(58, 58, 189); text-align: center; color: antiquewhite; font-size: 20px; border-radius: 2px;">Acciones</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    <% if (data) { %>
+                        <% for (let i = 0; i < data.length; i++) { %>
+                            <tr>
+                                <td style="text-align: center;"> <%= (i + 1) %> </td>
+                                <td style="text-align: center;"> <%= data[i].nombre %> </td>
+                                <td style="text-align: center;"> <%= data[i].precio %> </td>
+                                <td style="text-align: center;"> <%= data[i].moto %> </td>
+                                <td style="text-align: center;"> 
+                                    <a href="/delete/<%= data[i].idProducto %>" class="btn btn-danger mb-2">Eliminar</a>
+                                    <a href="/update/<%= data[i].idProducto %>" class="btn btn-primary mb-2">Actualizar</a>                                
+                                </td>                                 
+                            </tr>
+                        <% } %>
+                    <% } %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group mb-4">
+                            <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input class="form-control" type="text" name="precio" placeholder="Precio Producto">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input class="form-control" type="text" name="moto" placeholder="Aplicación Moto">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar Datos</button>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/_footer'); -%>

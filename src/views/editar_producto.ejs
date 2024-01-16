@@ -1,0 +1,32 @@
+<%- include('partials/_header'); -%>
+
+<div style="display: flex; justify-content: center; text-align: center;">
+    <div >
+        <div class="row mt-5" style="width: 400px;">        
+            <div class="col-md-5" style="width: 400px;">
+                <div class="card" style="width: 400px;">
+                    <div class="card-body" style="width: 400px;">
+                        <form action="/editar/<%= data.idProducto %>" method="post">
+                            <div class="form-group mb-4">
+                                <input class="form-control" value="<%= data.nombre %>" type="text" name="nombre">
+                            </div>
+                            <div class="form-group mb-4">
+                                <input class="form-control" value="<%= data.precio %>" type="text" name="precio" >
+                            </div>
+                            <div class="form-group mb-4">
+                                <input class="form-control" value="<%= data.moto %>" type="text" name="moto" >
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Enviar Datos</button>
+            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('partials/_footer'); -%>
