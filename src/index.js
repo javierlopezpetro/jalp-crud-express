@@ -1,6 +1,7 @@
 const express = require ('express');
 const path = require('path')
 const morgan =  require('morgan');
+const {PORT} = require('./config.js');
 
 const indexRouter = require('./routes/index.routes.js');
 
@@ -27,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //initializing server
 
-app.listen(3000, ()=>{
-    console.log("Servidor escuchando en el puerto 3000")
+app.listen(PORT, ()=>{
+    console.log(`Servidor escuchando en el puerto ${PORT}`)
 });
 
